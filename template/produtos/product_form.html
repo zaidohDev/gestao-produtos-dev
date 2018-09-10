@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block title %}PageCad{% endblock %}
+
+{% block main %}
+
+<h3 class="md">Cadastramento de Produtos</h3>
+<nav class="navbar navbar-expand-sm bg-light">
+        <p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
+            <a href="{% url 'logout' %}">Sair</a></span></p>
+    </nav>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     {{ form|bootstrap }}
+    <div class="btn-group">
+        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+        <a href="{% url 'products_list' %}" class="btn btn-outline-warning">Cancel</a>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block footer %}
+<footer >
+      <div class="container" class="footer" style="margin: 20px 0px;">
+
+      </div>
+    </footer>
+
+{% endblock %}
